@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>case - 4 Simple sticky position design </title>
+    <link rel="stylesheet" href="assests/css/normalize.css">
+
+    <style>
+        header{
+            background-color:  red;
+            position: relative;
+            height: 50px;
+            box-shadow:5px 6px 10px 1px rgb(0 0 0 );
+            z-index: 1;
+            min-width: 735px;
+        }
+        body > header > h1{
+            color: white;
+            text-align:-moz-left;
+            font-size: 30px;
+            font-weight: bolder;
+        }
+        body > section{
+            height: 200vh;
+            font-size: 50px;
+
+        }
+
+        #Part1{
+            background-color: orange;
+        }
+        #Part2{
+            background-color: green;
+        }
+        body > section > div:nth-of-type(1){
+            height: 50px;
+            font-weight: bolder;
+            position: sticky;
+            top: 0;
+            text-align: center;
+            font-size: 100px;
+            color: black;
+
+        }
+
+
+    </style>
+
+</head>
+<body>
+<header>
+    <h1> Card1</h1>
+</header>
+<section id="Part1">
+    <div id="Headingone">Hello</div>
+</section>
+
+<section id="Part2">
+    <div id="Hheadingtwo">IJSE</div>
+</section>
+</body>
+</html>

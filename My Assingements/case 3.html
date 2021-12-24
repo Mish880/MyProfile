@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>case 3 - simple task  </title>
+    <link rel="stylesheet" href="assests/css/normalize.css">
+    <style>
+        body > section {
+            position: relative;
+            height: 200vh;
+        }
+        .main_circle{
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+            z-index: 1;
+        }
+
+        #BigCircle{
+            border: solid  15px dimgray;
+            width: 230px;
+            height: 230px;
+            border-radius: 230px;
+        }
+
+        #largeCircle{
+            border: solid 16px red;
+            width: 200px;
+            height: 200px;
+            border-radius: 200px;
+        }
+        #purpleCircle{
+            background-color: rebeccapurple;
+            width: 200px;
+            height:200px ;
+            border-radius: 200px;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+            position: absolute;
+        }
+
+        body > section > div{
+            color: white;
+            text-align:-webkit-center;
+            font-size: 20px;
+            font-weight: bolder;
+            top: 0;
+            right: 0;
+            left: 0;
+            bottom: 0;
+            margin: auto;
+        }
+
+    </style>
+
+</head>
+<body>
+<section>
+    <div id="BigCircle" class="main_circle"></div>
+    <div id="largeCircle" class="main_circle"></div>
+    <div id="purpleCircle"><p>Hello</p></div>
+</section>
+</body>
+</html>
