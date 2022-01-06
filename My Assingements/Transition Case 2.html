@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Transition Case 2</title>
+    <link href="assests/css/normalize.css" rel="stylesheet">
+    <link href="assests/css/fonts/css/all.css" rel="stylesheet">
+
+    <style>
+        section {
+            width: 300px;
+            height: 300px;
+            border-radius: 100%;
+            background-color: #1d33ab;
+            position: absolute;
+            margin: auto;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+        }
+
+        section > h2 {
+            position: absolute;
+            margin: auto;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            width: max-content;
+            height: max-content;
+            color: white;
+            font-size: 30px;
+            font-family: Cambria;
+            z-index: 3;
+        }
+
+        section::after {
+            content: " ";
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            border:20px solid #77859d;
+            border-top: 20px solid #ff025f;
+            border-radius: 100%;
+        }
+        section:hover::after{
+            transform: rotate(360deg);
+            transition: all 2s;
+            cursor:pointer;
+        }
+    </style>
+
+</head>
+<body>
+
+    <section>
+        <h2>RWAD</h2>
+        <!--This is a Cosmetic Element -->
+    </section>
+
+</body>
+</html>
