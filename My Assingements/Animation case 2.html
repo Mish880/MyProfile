@@ -3,9 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <title>Animation case 2</title>
+    <style>
+          section{
+              width:1px;
+              height:1px;
+              border-radius: 100%;
+              border: 3px solid red;
+              animation-name:testOne ;
+              animation-duration:2s;
+              animation-iteration-count:infinite;
+
+              top: 0;
+              right: 0;
+              left: 0;
+              bottom: 0;
+              margin: auto;
+              position: absolute;
+
+          }
+        @keyframes testOne {
+            from{
+                width: 1px;
+                height: 1px;
+
+            }
+            to{
+                width:200px;
+                height:200px;
+                opacity: 0;
+
+            }
+        }
+    </style>
 
 </head>
 <body>
-
+      <section></section>
 </body>
 </html>
