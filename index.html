@@ -4,44 +4,373 @@
     <meta charset="UTF-8">
     <title>My WEB IT SOLUTIONS</title>
     <link rel="icon" href="assets/images/logo.png">
+    <link href="assets/css/normalize.css" rel="stylesheet">
+    <style>
+        header{
+            position: relative;
+            height: 80px;
+            box-shadow: -2px 6px 9px -4px #2c3e50;
+            background-color:#7f8c8d;
 
+
+        }
+        header > h1{
+            position: absolute;
+            left: 10px;
+            bottom: 3px;
+            color: #34495e;
+            font-size:24px ;
+
+        }
+        header > ul {
+            position: absolute;
+            right: 30px;
+            bottom: 0;
+            font-size: 21px;
+            list-style: none;
+            color: black;
+        }
+        header > ul > li {
+            padding: 0 10px 0 10px;
+            display: inline-block;
+        }
+        header > ul > li:hover {
+            cursor: pointer;
+            color: #192a56;
+        }
+         /*Header end*/
+
+        body > main {
+            position: relative;
+        }
+
+        /*Start First Content*/
+        body > main > #FirstContent {
+            height: 100vh;
+            background-image: url("assets/images/Background Image.PNG");
+        }
+        body > main > #FirstContent > div {
+            position: relative;
+            height: 80%;
+            width: 40%;
+
+        }
+        body > main > #FirstContent > div:nth-child(1) {
+            left: 0;
+            background-image: url("assets/images/logo.png");
+            background-size: cover;
+        }
+        body > main > #FirstContent > #OBorder{
+            height: 100px;
+            margin: auto;
+            top: 100px;
+            left: 300px;
+            right: 0;
+            background-color: #2c3e50;
+            background-size: cover;
+            border-radius: 10px;
+            position: absolute;
+            opacity: 80%;
+        }
+
+        body > main > #FirstContent > #OBorder >h1{
+             text-align: center;
+             color: #16a085 ;
+             font-family: "Book Antiqua";
+
+        }
+        body > main > #FirstContent > #TBorder{
+            height: 100px;
+            margin: auto;
+            top:220px;
+            left: 350px;
+            right: 0;
+            position: absolute;
+
+        }
+        body > main > #FirstContent > #TBorder > img{
+            height: 500px;
+            border-radius: 2%;
+        }
+
+        /*End First Content*/
+
+
+        /*Start Second Content*/
+        body > main > #SecondContent{
+            height: 100vh;
+            background-color: #2c3e50;
+        }
+        body > main > #SecondContent >header{
+
+            background-color:#0a3d62;
+
+        }
+        body > main > #SecondContent > header > h1{
+              position: absolute;
+              left: 700px;
+              top:3px;
+              color: #16a085;
+              font-size:35px ;
+              font-family:"Book Antiqua" ;
+        }
+        body > main > #SecondContent > div{
+            height: 100px;
+            margin: auto;
+            top:41px;
+            left: 46px;
+            right: 0;
+            position: relative;
+        }
+        body > main > #SecondContent > div > img{
+            height: 476px;
+            border-radius: 360%;
+            box-shadow: 65px 6px 9px -4px #1e272e;
+        }
+        body > main > #SecondContent > #SecondContentDivOne{
+            height: 80px;
+            margin: auto;
+            top: -67px;
+            left: 537px;
+            position: relative;
+
+        }
+        body > main > #SecondContent > #SecondContentDivOne >h1{
+            color: #16a085;
+            font-size: 79px;
+        }
+        body > main > #SecondContent > #SecondContentDivTwo{
+            height: 80px;
+            width: 463px;
+            margin: auto;
+            top : -66px;
+            left: 32px;
+            position: relative;
+        }
+        body > main > #SecondContent > #SecondContentDivTwo >p{
+            color:#16a085 ;
+            font-size: 38px;
+        }
+        body > main > #SecondContent > #SecondContentDivThree{
+            height: 80px;
+            width: 656px;
+            margin: auto;
+            top: 108px;
+            left: 0;
+            position: relative;
+        }
+        body > main > #SecondContent > #SecondContentDivThree >p{
+              color:#44bd32 ;
+              font-size: 38px;
+        }
+        body > main > #SecondContent > #SecondContentDivFour{
+            height: 100px;
+            margin: auto;
+            top:-309px;
+            left: 1034px;
+            right: 0;
+            position: relative;
+        }
+        body > main > #SecondContent > #SecondContentDivFour > img {
+
+            height: 543px;
+            box-shadow: -2px 6px 9px -4px #2c3e50;
+            opacity: 30%;
+        }
+
+
+
+        /*End Second Content*/
+
+
+        /*Start Third Content*/
+        body > main > #ThirdContent{
+            height: 100vh;
+            background-color:#34495e;
+        }
+        body > main > #ThirdContent > header {
+            position: absolute;
+        }
+        body > main > #ThirdContent > header > h1 {
+            position: absolute;
+            left: 700px;
+            top:3px;
+            color: black;
+            font-size:35px ;
+            font-family:"Book Antiqua" ;
+        }
+        /*End Third Content*/
+
+        /*Strat Fourth Content*/
+        body > main > #FourthContent{
+            height: 100vh;
+            background-color: #2c3e50;
+        }
+        body > main > #FourthContent > header{
+
+          background-color:#2c3e50 ;
+        }
+        body > main > #FourthContent > header > h1 {
+            position: absolute;
+            left: 700px;
+            top:3px;
+            color: #16a085;
+            font-size:35px ;
+            font-family:"Book Antiqua" ;
+        }
+        /*End Fourth Content*/
+
+        /*Strat Fifth Content*/
+        body > main > #FifthContent{
+            height: 100vh;
+            background-color: #34495e;
+        }
+        body > main > #FifthContent > header{
+            position: absolute;
+        }
+        body > main > #FifthContent > header > h1 {
+            left: 700px;
+            top:3px;
+            color: black;
+            font-size:35px ;
+            font-family:"Book Antiqua" ;
+        }
+        /*End FifthContent*/
+
+        /*Strat Sixth Content*/
+        body > main > #SixthContent{
+            height: 100vh;
+            background-color:#2c3e50 ;
+        }
+        body > main > #SixthContent >header{
+            background-color:#2c3e50 ;
+        }
+        body > main > #SixthContent > header > h1{
+            left: 700px;
+            top:3px;
+            color: #16a085;
+            font-size:35px ;
+            font-family:"Book Antiqua" ;
+        }
+        /*End Sixth Content*/
+
+        /*Start Seventh Content*/
+        body > main > #SeventhContent{
+            height: 100vh;
+            background-color: #34495e;
+        }
+        body > main > #SeventhContent > header{
+            position: absolute;
+        }
+        body > main > #SeventhContent > header > h1 {
+            left: 700px;
+            top:3px;
+            color: black;
+            font-size:35px ;
+            font-family:"Book Antiqua" ;
+        }
+        /*End Seventh Content*/
+
+    </style>
 </head>
 <body>
 
- <section>
-  <main>
-      <h1>MY WEB IT SOLUTIONS</h1>
-          <nav class ="crumbs">
-               <li><a href="#">HOME</a></li>
-               <li><a href="#">ABOUT</a></li>
-               <li><a href="#">BLOG</a></li>
-               <li><a href="#">SKILL</a></li>
-               <li><a href="#">EDUCATION</a></li>
-               <li><a href="#">MY PROJECTS</a></li>
-               <li><a href="#">CONTACT US</a></li>
-          </nav>
-  </main>
+     <header>
+           <h1>MY WEB IT SOLUTIONS</h1>
+            <ul>
+                 <li>HOME</li>
+                 <li>ABOUT</li>
+                 <li>BLOG</li>
+                 <li>SKILL</li>
+                 <li>EDUCATION</li>
+                 <li>MY PROJECTS</li>
+                 <li>CONTACT US</li>
+            </ul>
+     </header>
 
- <section>
+     <main>
+          <!--Start First Content -->
+          <section id="FirstContent">
+              <div></div>
+              <div id="OBorder">
+                   <h1>WELCOME TO MY WEB IT SOLUTIONS</h1>
+              </div>
+              <div id="TBorder">
+                  <img src="assets/images/3Images-pack.png" alt="Error Loading Image">
+              </div>
 
- </section>
-        <header>
-            <div style ="text-align: center"><h1>WELCOME TO MY WEB IT SOLUTIONS</h1></div>
-        </header>
-       <img class = "fit-logo"
-           src="assets/images/logo.png" alt="Error loading Image" width="500">
-      <img class="fit -side-image"
-           src="assets/images/3Images-pack.png" alt="Error loading Image" width="300">
- </section>
+          </section>
+          <!--End First Content -->
 
-<section></section>
-<section></section>
-<section></section>
-<section></section>
-<section></section>
-<section></section>
-<footer></footer>
+         <!--Start Second Content -->
+         <section id="SecondContent">
+                <header>
+                     <h1>ABOUT ME</h1>
+                </header>
+            <div>
+                <img src="assets/images/ME.jpg" alt="Error Loading Image">
 
+            </div>
 
-</body>
+             <div id="SecondContentDivOne">
+                  <h1>J.K. MISHEL PERERA...!</h1>
+             </div>
+
+             <div id="SecondContentDivTwo">
+                  <p>I'am Student OF Institute Java Software Engineering Campus. I'am FullStack Software Programmer.</p>
+             </div>
+            <div id="SecondContentDivThree">
+                 <p>& I'm FreeLancer I Create Web Applications, Desktop Applications And Mobile Applications...!</p>
+            </div>
+             <div id="SecondContentDivFour">
+                 <img  src="assets/images/backgroundLogo.png" alt="Error Loding Image">
+             </div>
+         </section>
+         <!--End Second Content -->
+
+          <!--Start Third Content -->
+          <section id="ThirdContent">
+              <header>
+                   <h1>BLOG</h1>
+              </header>
+          </section>
+          <!--End Third Content -->
+
+          <!--Start Fourth Content -->
+          <section id="FourthContent">
+               <header>
+                    <h1>MY SKILLS</h1>
+               </header>
+          </section>
+          <!--End Fourth Content -->
+
+          <!--Start Fifth Content -->
+          <section id="FifthContent">
+               <header>
+                    <h1>EDUCATION</h1>
+               </header>
+          </section>
+          <!--End Fifth Content -->
+
+          <!--Start Sixth Content -->
+          <section id="SixthContent">
+               <header>
+                   <h1>MY PROJECTS</h1>
+               </header>
+          </section>
+          <!--End Sixth Content -->
+
+         <!--Start Seventh Content -->
+         <section id="SeventhContent">
+               <header>
+                    <h1>CONTACT </h1>
+               </header>
+         </section>
+         <!--End Seventh Content -->
+
+         <!--Start Final Content of footer -->
+         <footer id="FinelContent"></footer>
+         <!--Start Final Content of footer -->
+     </main>
+   </body>
 </html>
