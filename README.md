@@ -8,11 +8,11 @@
 -  [SiteMap URL][SiteMap URL]
 -  [000WebHost URL][000WebHost URL]
 -  [Wireframe URL][Wireframe URL]
--   [My Profile]
+
 
   [Mockup URL]: https://www.figma.com/file/WDzeEdM8egmZhrDHb6Udp7/MY-WEB-IT-SOLUTIONS?node-id=0%3A1
   [SiteMap URL]: https://www.gloomaps.com/rwfHp3rnVj
   [000WebHost URL]: https://mishe2021.000webhostapp.com/
   [Wireframe URL]: https://wireframe.cc/suRjXI
   
-![My Profile](https://user-images.githubusercontent.com/68801545/149540946-a93ecebc-1da9-4480-a31e-95ed5d84a88c.PNG)
+[My Profile](https://user-images.githubusercontent.com/68801545/149540946-a93ecebc-1da9-4480-a31e-95ed5d84a88c.PNG)
