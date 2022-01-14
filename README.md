@@ -19,4 +19,4 @@
   
   ## Using Tools
 - Prototype Design Tool :- Figma
-- IDE :- InteliJ Idea 2021.2.4
+- IDE :- InteliJ Idea 2020.1.1
