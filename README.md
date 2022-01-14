@@ -8,6 +8,7 @@
 -  [SiteMap URL][SiteMap URL]
 -  [000WebHost URL][000WebHost URL]
 -  [Wireframe URL][Wireframe URL]
+-   [My Profile]
 
   [Mockup URL]: https://www.figma.com/file/WDzeEdM8egmZhrDHb6Udp7/MY-WEB-IT-SOLUTIONS?node-id=0%3A1
   [SiteMap URL]: https://www.gloomaps.com/rwfHp3rnVj
