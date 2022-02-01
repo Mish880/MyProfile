@@ -61,8 +61,29 @@
     </div>
 
       <div class="col-12 col-md-5">
-          <button class="btn btn-danger">Add New Customer Details</button>
+          <button class="btn btn-danger" id="btnSaveCustomer">Add New Customer Details</button>
           <button class="btn btn-success">View Customer Details</button>
+       <div>
+          <div class="mb-3">
+              <label class="form-label" for="txtCusID">Customer ID</label>
+              <input class="form-control" id="txtCusID" placeholder="Customer ID" type="text">
+          </div>
+
+          <div class="mb-3">
+              <label class="form-label" for="txtCusID">Customer Name</label>
+              <input class="form-control" id="txtName" placeholder="Customer Name" type="text">
+          </div>
+
+          <div class="mb-3">
+              <label class="form-label" for="txtCusID">Customer Address</label>
+              <input class="form-control" id="txtAddress" placeholder="Customer Address" type="text">
+          </div>
+
+          <div class="mb-3">
+              <label class="form-label" for="txtCusID">Customer Contact</label>
+              <input class="form-control" id="txtContact" placeholder="Customer Contact" type="text">
+          </div>
+       </div>
       </div>
     </section>
 
@@ -77,33 +98,18 @@
                     <th scope="col">Salary</th>
                 </tr>
                 </thead>
-                <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Mishel</td>
-                    <td>25</td>
-                    <td>25,000</td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Kamal</td>
-                    <td>23</td>
-                    <td>35,000</td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td>Sunimal</td>
-                    <td>20</td>
-                    <td>20,000</td>
+                <tbody id="cusTable">
 
-                </tr>
+
                 </tbody>
             </table>
         </div>
       </section>
 
 </section>
-
+<script src="assets/JQuery/jquery-3.6.0.min.js"></script>
 <script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="assets/customer.js"></script>
+
 </body>
 </html>
