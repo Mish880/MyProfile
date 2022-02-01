@@ -61,8 +61,29 @@
         </div>
 
         <div class="col-12 col-md-5">
-            <button class="btn btn-danger">Add New Item Details</button>
+            <button class="btn btn-danger" id="btnSaveItem">Add New Item Details</button>
             <button class="btn btn-success">View Items </button>
+
+            <div class="mb-3">
+                <label class="form-label" for="txtItemID">Item ID</label>
+                <input class="form-control" id="txtItemID" placeholder="Item ID" type="text">
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label" for="txtItemName">Item Type</label>
+                <input class="form-control" id="txtItemName" placeholder="Item Type" type="text">
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label" for="txtInStock">In Stock</label>
+                <input class="form-control" id="txtInStock" placeholder="In Stock" type="text">
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label" for="txtItemSalary">Item Price</label>
+                <input class="form-control" id="txtItemSalary" placeholder="Item Salary" type="text">
+            </div>
+
         </div>
     </section>
 
@@ -77,33 +98,18 @@
                     <th scope="col">Salary</th>
                 </tr>
                 </thead>
-                <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Soap</td>
-                    <td>25</td>
-                    <td>25,000</td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Chocolate</td>
-                    <td>23</td>
-                    <td>35,000</td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td>Milk</td>
-                    <td>20</td>
-                    <td>20,000</td>
+                <tbody id="itemTable">
 
-                </tr>
+
+
                 </tbody>
             </table>
         </div>
     </section>
 
 </section>
-
+<script src="assets/JQuery/jquery-3.6.0.min.js"></script>
 <script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="assets/item.js"></script>
 </body>
 </html>
