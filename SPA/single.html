@@ -84,6 +84,7 @@
  </section>
 
  <section id="customerpage">
+
      <section class="container-fluid mt-3">
          <section class="row mt-3 justify-content-around">
              <div class="col-12 col-md-4">
@@ -94,11 +95,42 @@
                          <button class="btn btn-outline-success" type="submit">Search Customer</button>
                      </form>
                  </div>
+                 <div class="mb-3">
+                     <div class="card" style="width: 30rem;">
+                         <img src="assests/images/S1.jpg" class="card-img-top" alt="Error loading image">
+                         <div class="card-body">
+                             <h5 class="card-title">Add Customer Details</h5>
+                             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                             <a href="#" class="btn btn-primary">Go somewhere</a>
+                         </div>
+                     </div>
+                 </div>
              </div>
 
              <div class="col-12 col-md-5">
-                 <button class="btn btn-danger">Add New Customer Details</button>
+                 <button class="btn btn-danger" id="btnSaveCustomer">Add New Customer Details</button>
                  <button class="btn btn-success">View Customer Details</button>
+                 <div>
+                     <div class="mb-3">
+                         <label class="form-label" for="txtCusID">Customer ID</label>
+                         <input class="form-control" id="txtCusID" placeholder="Customer ID" type="text">
+                     </div>
+
+                     <div class="mb-3">
+                         <label class="form-label" for="txtName">Customer Name</label>
+                         <input class="form-control" id="txtName" placeholder="Customer Name" type="text">
+                     </div>
+
+                     <div class="mb-3">
+                         <label class="form-label" for="txtAddress">Customer Address</label>
+                         <input class="form-control" id="txtAddress" placeholder="Customer Address" type="text">
+                     </div>
+
+                     <div class="mb-3">
+                         <label class="form-label" for="txtContact">Customer Contact</label>
+                         <input class="form-control" id="txtContact" placeholder="Customer Contact" type="text">
+                     </div>
+                 </div>
              </div>
          </section>
 
@@ -113,35 +145,19 @@
                          <th scope="col">Salary</th>
                      </tr>
                      </thead>
-                     <tbody>
-                     <tr>
-                         <th scope="row">1</th>
-                         <td>Mishel</td>
-                         <td>25</td>
-                         <td>25,000</td>
-                     </tr>
-                     <tr>
-                         <th scope="row">2</th>
-                         <td>Kamal</td>
-                         <td>23</td>
-                         <td>35,000</td>
-                     </tr>
-                     <tr>
-                         <th scope="row">3</th>
-                         <td>Sunimal</td>
-                         <td>20</td>
-                         <td>20,000</td>
+                     <tbody id="cusTable">
 
-                     </tr>
+
                      </tbody>
                  </table>
              </div>
          </section>
-
      </section>
+
  </section>
 
     <section id="itempage">
+
         <section class="container-fluid mt-3">
             <section class="row mt-3 justify-content-around">
                 <div class="col-12 col-md-4">
@@ -152,11 +168,43 @@
                             <button class="btn btn-outline-success" type="submit">Search Items</button>
                         </form>
                     </div>
+
+                    <div class="mb-3">
+                        <div class="card" style="width: 30rem;">
+                            <img src="assests/images/S2.jpg" class="card-img-top" alt="Error Loading Image">
+                            <div class="card-body">
+                                <h5 class="card-title">Select Any Item</h5>
+                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="col-12 col-md-5">
-                    <button class="btn btn-danger">Add New Item Details</button>
+                    <button class="btn btn-danger" id="btnSaveItem">Add New Item Details</button>
                     <button class="btn btn-success">View Items </button>
+
+                    <div class="mb-3">
+                        <label class="form-label" for="txtItemID">Item ID</label>
+                        <input class="form-control" id="txtItemID" placeholder="Item ID" type="text">
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label" for="txtItemName">Item Type</label>
+                        <input class="form-control" id="txtItemName" placeholder="Item Type" type="text">
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label" for="txtInStock">In Stock</label>
+                        <input class="form-control" id="txtInStock" placeholder="In Stock" type="text">
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label" for="txtItemSalary">Item Price</label>
+                        <input class="form-control" id="txtItemSalary" placeholder="Item Salary" type="text">
+                    </div>
+
                 </div>
             </section>
 
@@ -171,37 +219,25 @@
                             <th scope="col">Salary</th>
                         </tr>
                         </thead>
-                        <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Soap</td>
-                            <td>25</td>
-                            <td>25,000</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>Chocolate</td>
-                            <td>23</td>
-                            <td>35,000</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">3</th>
-                            <td>Milk</td>
-                            <td>20</td>
-                            <td>20,000</td>
+                        <tbody id="itemTable">
 
-                        </tr>
+
+
                         </tbody>
                     </table>
                 </div>
             </section>
 
         </section>
+
+
     </section>
 
 </main>
 
+
    <script src="assests/script.js"></script>
    <script src="assests/BootStrap/js/bootstrap.bundle.min.js"></script>
+
   </body>
 </html>
