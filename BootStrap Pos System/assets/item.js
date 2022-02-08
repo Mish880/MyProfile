@@ -17,6 +17,23 @@ $("#btnSaveItem").click(function () {
 
     /*bind the event after the row*/
     $("#itemTable>tr").click(function(){
-      console.log(this);
+      /*this*/ /*Input dom object*/
+      /*$(this);*/ /*This is a JQuery Object*/
+
+     /*$(this)*/ /*tr*/
+     /*$(this).children();*/ /*return all td inside selected the row*/
+
+        let ItemID = $(this).children(":eq(0)").text();/*Selected the first td and get text*/
+        let ItemType = $(this).children(":eq(1)").text();
+        let ItemStock = $(this).children(":eq(2)").text();
+        let ItemSalary = $(this).children(":eq(3)").text();
+
+        console.log(ItemID, ItemType , ItemStock, itemSalary);
+
+        /*Set values for the input fields*/
+        $("#txtItemID").val(ItemID);
+        $("#txtItemName").val(itemType);
+        $("#txtInStock").val(itemStock);
+        $("#txtItemSalary").val(itemSalary);
     });
 });
