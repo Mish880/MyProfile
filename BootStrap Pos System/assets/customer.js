@@ -77,3 +77,28 @@ $("#btnSaveCustomer").click(function () {
      }
     });
 
+    var regExCUSADDRESS = /^[A-z]{3,20}$/;
+
+    $("#txtAddress").keyup(function () {
+        let input = $("#txtAddress").val();
+        if (regExCUSADDRESS.test(input)) {
+            $("#txtAddress").css('border' , '2px solid green');
+            $("#error").text("");
+        } else {
+            $("#txtAddress").css('border', '2px solid red');
+            $("#error").text("This is Wrong format :Colombo - 1----2---");
+        }
+    });
+
+    var regExCUSCONTACT = /^[1-9][0-9]*[0-9]{2}?$/;
+
+    $("#txtContact").keyup(function () {
+       let  input = $("#txtContact").val();
+       if(regExCUSCONTACT.test(input)) {
+          $("#txtContact").css('border' , '2px solid green');
+          $("#error").text("");
+       } else {
+           $("#txtContact").css('border' , '2px solid red');
+           $("#error").text("This is wrong format :qwer");
+       }
+    });
