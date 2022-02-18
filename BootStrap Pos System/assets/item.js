@@ -1,97 +1,219 @@
-/*Add Item Details*/
 
-/*Button Selection*/
+/*Item Part Java Script is Started*/
+
 $("#btnSaveItem").click(function () {
+    saveItem();
+    clearAllItem();
+    loadAllItems();
+});
 
-    /*gather the item information*/
+$("#btnSearch").click(function () {
+    var searchID = $("#txtSearchItemID").val();
+
+    var response = searchitem(searchID);
+    if (response){
+        $("#txtItemID").val(response.id);
+        $("#txtItemName").val(response.Type);
+        $("#txtInStock").val(response.stock);
+        $("#txtItemSalary").val(response.salary);
+    } else {
+        clearAllItem();
+        alert("No Such a Item");
+    }
+});
+/*Events End*/
+/*Crud is Started*/
+function loadAllItems() {
+    $("#itemTable").empty();
+    for (var k of itemDB) {
+
+        let row = `<tr><td>${k.Id}</td><td>${k.Type}</td><td>${k.stock}</td><td>${k.salary}</td></tr>`;
+
+        $("#itemTable").append(row);
+    }
+}
+
+function saveItem() {
     let itemId = $("#txtItemID").val();
     let itemType = $("#txtItemName").val();
     let itemStock = $("#txtInStock").val();
     let itemSalary = $("#txtItemSalary").val();
 
-    /*Create html Path*/
-    let row = `<tr><td>${itemId}</td><td>${itemType}</td><td>${itemStock}</td><td>${itemSalary}</td></tr>`;
+    var itemObject = {
+        Id : itemId,
+        Type : itemType,
+        stock : itemStock,
+        salary : itemSalary
 
-    /*Select the table append to the row*/
-    $("#itemTable").append(row);
+    };
+    itemDB.push(itemObject);
+}
 
-    /*bind the event after the row*/
-    $("#itemTable>tr").click(function () {
-        /*this*/ /*Input dom object*/
-        /*$(this);*/ /*This is a JQuery Object*/
+function searchitem(id) {
+    for (let k = 0; k < itemDB.length; k++) {
+        if(itemDB[k].Id ==id) {
+            return itemDB[k];
+        }
+    }
+}
 
-        /*$(this)*/ /*tr*/
-        /*$(this).children();*/ /*return all td inside selected the row*/
+function deleteItem() {
 
-        let ItemID = $(this).children(":eq(0)").text();/*Selected the first td and get text*/
-        let ItemType = $(this).children(":eq(1)").text();
-        let ItemStock = $(this).children(":eq(2)").text();
-        let ItemSalary = $(this).children(":eq(3)").text();
+}
 
-        console.log(ItemID, ItemType, ItemStock, itemSalary);
+function updateItem() {
 
-        /*Set values for the input fields*/
-        $("#txtItemID").val(ItemID);
-        $("#txtItemName").val(itemType);
-        $("#txtInStock").val(itemStock);
-        $("#txtItemSalary").val(itemSalary);
-    });
+}
 
-    /*Remove the selected row from the double click*/
-    $("#itemTable>tr").dblclick(function () {
-        $(this).remove();
-    });
-});
+ /*CRUD OPERATIONS ENDED*/
 
-var regExITEMID = /^[I]{1}[0-9]{0,50}$/;
+ /*validation started*/
+ /*item regular Expressions Started*/
+  const itemIDRegEX = /^[R]{1}[0-9]{0,50}$/;
+  const itemTypeRegEX = /^[A-z]{3,20}$/;
+  const itemStockRegEX = /^[0-9]{1,4}?$/;
+  const itemSalaryRegEX = /^[1-9][0-9]*[0-9]{2}?$/;
 
- $("#txtItemID").keyup(function () {
+  $('#txtItemID,#txtItemName,#txtInStock,#txtItemSalary').on('keydown' , function (eventOb) {
+       if (eventOb.key == "Tab") {
+           eventOb.preventDefault(); /*Stop execution of the button */
+       }
+  });
+  $("#txtItemID,#txtItemName,#txtInStock,#txtItemSalary").on('blur' , function (eventOb) {
+       ItemformVaild();
+  });
+  $("#txtItemID").on('keyup' , function (eventOb) {
+     setButtonI();
+     if (eventOb.key == "Enter") {
+         IcheckIfVaild();
 
-     let input = $("#txtItemID").val();
-     if (regExITEMID.test(input)){
-         $("#txtItemID").css('border' , '2px solid green');
-         $("#error").text("");
-     } else {
-         $("#txtItemID").css('border' , '2px solid red');
-         $("#error").text("This is a Wrong format : i001");
      }
- });
+     if (eventOb.key == "Control") {
+         var typedItemID = $("#txtItemID").val();
+         var srcItem = searchitemFormID(typedItemID);
+         $("#txtItemID").val(srcItem.getItemID());
+         $("#txtItemName").val(srcItem.getItemType());
+         $("#txtInStock").val(srcItem.getItemInStock());
+         $("#txtItemSalary").val(srcItem.getItemSalary());
+     }
 
- var regEXITEMTYPE = /^[A-z]{3,20}$/;
+  });
 
- $("#txtItemName").keyup(function () {
-   let input = $("#txtItemName").val();
-   if (regEXITEMTYPE.test(input)) {
-       $("#txtItemName").css('border' , '2px solid green');
-       $("#error").text();
-   } else {
-       $("#txtItemName").css('border' , '2px solid red');
-       $("#error").text("This is a wrong format : 1234");
-   }
- });
+  $("#txtItemName").on('keyup' , function (eventOb) {
+      setButtonI();
+      if (eventOb.key == "Enter") {
+          IcheckIfVaild();
+      }
+  });
+  $("#txtInStock").on('keyup' , function (eventOb) {
+     setButtonI();
+      if (eventOb.key == "Enter") {
+          IcheckIfVaild();
+      }
+  });
 
- var regExITEMINSTOCK = /^[0-9]{1,4}?$/;
+  $("#txtItemSalary").on('keyup' ,function (eventOb) {
+      setButtonI();
+      if (eventOb.key == "Enter") {
+          IcheckIfVaild();
+      }
+  });
 
- $("#txtInStock").keyup(function () {
-   let input = $("#txtInStock").val();
-   if(regExITEMINSTOCK.test(input)) {
-       $("#txtInStock").css('border' , '2px solid green');
-       $("#error").text();
-   } else {
-       $("#txtInStock").css('border' , '2px solid red');
-       $("#error").text("This is a wrong format : ABCD");
-   }
- });
+  /*focusing events to end*/
+ $("#btnSaveItem").attr('disabled' , true);
 
- var regEXITEMSALARY = /^[1-9][0-9]*[0-9]{2}?$/;
+  function  clearAllItem() {
+       $('#txtItemID,#txtItemName,#txtInStock,#txtItemSalary').val("");
+       $('#txtItemID,#txtItemName,#txtInStock,#txtItemSalary').css('border' , '2px solid #ced4da');
+       $('#txtItemID').focus();
+       $("#btnSaveItem").attr('disabled' , true);
+       loadAllItems();
+       $("#lblItemId,#lblItemType,#lblItemStock,#lblItemSalary").text("");
+  }
 
- $("#txtItemSalary").keyup(function () {
-   let input = $("#txtItemSalary").val();
-   if (regEXITEMSALARY.test(input)) {
-       $("#txtItemSalary").css('border' , '2px solid green');
-       $("#error").text();
-   } else {
-       $("#txtItemSalary").css('border' , '2px solid red');
-       $("#error").text();
-   }
- });
+  function ItemformVaild() {
+      var itemID = $("#txtItemID").val();
+      $("#txtItemID").css('border' , '2px solid green');
+      $("#lblItemId").text("");
+      if (itemIDRegEX.test(itemID)) {
+          var itemType = $("#txtItemName").val();
+          if(itemTypeRegEX.test(itemType)) {
+              $("#txtItemName").css('border','2px solid green');
+              $("#lblItemType").text("");
+              var itemStock = $("#txtInStock").val();
+              if (itemStockRegEX.test(itemStock)) {
+                  var itemSalary = $("#txtItemSalary").val();
+                  var resp =  itemSalaryRegEX.test(itemSalary);
+                  $("#txtInStock").css('border' , '2px solid green');
+                  $("#lblItemStock").text();
+                  if(resp) {
+                      $("#txtItemSalary").css('border','2px solid green');
+                      $("#lblItemSalary").text("");
+                      return true;
+                    } else {
+                      $("#txtItemSalary").css('border','2px solid red');
+                      $("#lblItemSalary").text("Item Salary is required field : Pattern 100.00 or 100");
+                      return false;
+                  }
+              } else {
+                  $("#txtInStock").css('border','2px solid red');
+                  $("#lblItemStock").text("Item Type is required field : pattern 100")
+                  return false;
+              }
+          } else {
+              $("#txtItemName").css('border','2px solid red');
+              $("#lblItemType").text("Item Name is a required field :Mimum 5, Max 20,Spaces Allowed");
+              return false;
+          }
+      } else {
+          $("#txtItemID").css('border' ,'2px solid red');
+          $("#lblItemId").text("Item id is required field : Pattern I00");
+          return false;
+      }
+
+  }
+
+    function IcheckIfVaild() {
+       var itemID = $("#txtItemID").val();
+       if (itemIDRegEX.test(itemID)) {
+           $("#txtItemName").focus();
+           var itemType = $("#txtItemName").val();
+           if (itemTypeRegEX.test(itemType)) {
+               $("#txtInStock").focus();
+            var itemInStock = $("#txtInStock").val();
+            if (itemStockRegEX.test(itemInStock)) {
+                $("#txtItemSalary").focus();
+                var itemSalary = $("#txtItemSalary").val();
+                var resp = itemSalaryRegEX.test(itemSalary);
+                if(resp) {
+                    let res = confirm("Do you really need to add this customer..?");
+                    if (res) {
+                        saveItem();
+                        clearAllItem();
+                    }
+                } else {
+                    $("#txtItemSalary").focus();
+                }
+            } else {
+                $("#txtInStock").focus();
+            }
+           } else {
+               $("#txtItemName").focus();
+           }
+       } else {
+           $("#txtItemID").focus();
+       }
+    }
+    function setButtonI() {
+       let b = ItemformVaild();
+       if(b) {
+           $("#btnSaveItem").attr('disabled' , false);
+       } else {
+           $("btnSaveItem").attr('disabled' , true);
+       }
+  }
+   $('#btnSaveItem').click(function () {
+          IcheckIfVaild();
+   });
+   /*Vaildation Ended*/
+
