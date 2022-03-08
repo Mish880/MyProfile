@@ -11,10 +11,10 @@ $("#btnSearchItem").click(function () {
 
      var response = searchItem(searchID);
      if (response) {
-         $("#txtItemID").val(response.Itemid);
-         $("#txtItemName").val(response.Itemname);
-         $("#txtInStock").val(response.ItemStock);
-         $("#txtItemSalary").val(response.ItemSalary);
+         $("#txtItemID").val(response.setCode());
+         $("#txtItemName").val(response.setName());
+         $("#txtInStock").val(response.setItemstock());
+         $("#txtItemSalary").val(response.setItemsalary());
      } else {
          clearAllItem();
          alert("No Such a Item");

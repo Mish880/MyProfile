@@ -6,34 +6,22 @@ $("#btnSaveCustomer").click(function () {
     loadAllCustomers();
 });
 /*This is Search Customer*/
-function searchCustomer(searchId){
-   for (var i = 0; i < customerDB.length; i++) {
-       if (customerDB[i].getId() == searchId) {
-           return customerDB[i];
-       }
-   }
-}
+$("#btnSearchCustomer").click(function () {
+    var searchID = $("#txtSearchCusID").val();
+
+    var response = searchCustomer(searchID);
+    if(response) {
+        $("#txtCusID").val(response.setId());
+        $("#txtName").val(response.setName());
+        $("#txtAddress").val(response.setAddress());
+        $("#txtContact").val(response.setContact());
+    }else{
+        clearAll();
+        alert("No Such a Customer");
+    }
+});
 /*This is Search Cus in table*/
-function searchCustomerByTable(searchId) {
-   var customer = searchCustomer(searchId);
-   let foundOrNot = false;
-   if (customer) {
-       var id = customer.getId();
-       var name = customer.getName();
-       var address = customer.getAddress();
-       var contact = customer.getContact();
 
-       $("#cusTable").empty();
-
-       let tableRow = `<tr><td>${id}</td><td>${name}</td><td>${address}</td><td>${contact}</td></tr>`
-       $("#cusTable").append(tableRow);
-       foundOrNot = true;
-   }
-   if (foundOrNot == false) {
-       alert("Customer Not Found");
-       loadAllCustomers();
-   }
-}
 
 /*This Event is End*/
 
@@ -63,13 +51,7 @@ function saveCustomer() {
         caddress:customerAddress,
         contact:customerContact*/
 }
- function searchCustomer(id) {
-     for(let i = 0; i < customerDB.length; i++) {
-         if(customerDB[i].id == id) {
-             return customerDB[i];
-         }
-     }
-}
+
 
  function deleteCustomer() {
      /*write the code*/
@@ -215,17 +197,7 @@ function formvaild() {
            $("#txtCusID").focus();
        }
    }
-   $("#txtSearchCusID").on('keyup' , function (event) {
-     if (event.key == "Enter") {
-         var cusId = $("#txtSearchCusID").val();
-         searchCustomerByTable(cusId);
-     }
-   });
 
-   $("#btnSearchCustomer").click(function () {
-     var cusId = $("#txtSearchCusID").val();
-     searchCustomerByTable();
-   });
 
    function setButton() {
         let b = formvaild();
