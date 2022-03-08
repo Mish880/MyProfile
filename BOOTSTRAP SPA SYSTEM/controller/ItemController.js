@@ -128,7 +128,7 @@ $("#txtItemID").on('keyup' , function (eventDb) {
         var typedItemID = $("#txtItemID").val();
         var srcItem = searchItemFromID(typedItemID);
         $("#txtItemID").val(srcItem.getItemID());
-        $("#txtItemName").val(srcItem.getItemName());
+        $("#txtItemName").val(srcItem.getItemsName());
         $("#txtInStock").val(srcItem.getItemStock());
         $("#txtItemSalary").val(srcItem.getItemSalary());
     }
