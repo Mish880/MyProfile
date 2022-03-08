@@ -13,11 +13,11 @@ function ItemDTO(Itemid, Itemname, ItemStock, ItemSalary) {
         __itemid = Itemid;
     }
 
-    this.getName = function() {
+    this.getItemName = function() {
         return __itemname;
     }
 
-    this.setName = function () {
+    this.setItemName = function () {
       __itemname = Itemname;
     }
 

@@ -45,7 +45,7 @@ function loadAllCustomers() {
         $("#btnUpdate").click(function () {
             for (var i in customerDB ){
                 if ($("#txtCusID").val() == customerDB[i].getId()){
-                    let  customerID = $("#txtCusID").val();
+                    let customerID = $("#txtCusID").val();
                     let customerName = $("#txtName").val();
                     let customerAddress = $("#txtAddress").val();
                     let customerContact = $("#txtContact").val();
@@ -67,8 +67,8 @@ function loadAllCustomers() {
              if ($("#txtCusID").val() == customerDB[i].getId()){
                  customerDB.splice(i,1);
              }
-
          }
+         /*End of the Delete Button*/
          loadAllCustomers();
       });
 

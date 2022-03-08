@@ -11,10 +11,10 @@ $("#btnSearchItem").click(function () {
 
      var response = searchItem(searchID);
      if (response) {
-         $("#txtItemID").val(response.setCode());
-         $("#txtItemName").val(response.setName());
-         $("#txtInStock").val(response.setItemstock());
-         $("#txtItemSalary").val(response.setItemsalary());
+         $("#txtItemID").val(response.itemID);
+         $("#txtItemName").val(response.itemName);
+         $("#txtInStock").val(response.itemStock);
+         $("#txtItemSalary").val(response.itemSalary);
      } else {
          clearAllItem();
          alert("No Such a Item");
@@ -27,11 +27,46 @@ function loadAllItems() {
       $("#itemTable").empty();
       for (var i = 0; i < itemDB.length; i++) {
           /*Firstly Create a HTML ROW */
-       let row = `<tr><td>${itemDB[i].getCode()}</td><td>${itemDB[i].getName()}</td><td>${itemDB[i].getItemstock()}</td><td>${itemDB[i].getItemsalary()}</td></tr>`
+       let row = `<tr><td>${itemDB[i].getCode()}</td><td>${itemDB[i].getItemName()}</td><td>${itemDB[i].getItemstock()}</td><td>${itemDB[i].getItemsalary()}</td></tr>`
        /*select the table body and append the row*/
           $("#itemTable").append(row);
       }
+      $("#itemTable>tr").click(function () {
+          $("#txtItemID").val($(this).children(":eq(0)").text());
+          $("#txtItemName").val($(this).children(":eq(1)").text());
+          $("#txtInStock").val($(this).children(":eq(2)").text());
+          $("#txtItemSalary").val($(this).children(":eq(3)").text());
+      });
 }
+     /*Create update*/
+       $("#btnUpdateItem").click(function () {
+           for (var k in itemDB){
+               if ($("#txtItemID").val() == itemDB[k].getCode()){
+                   let itemID = $("#txtItemID").val();
+                   let itemName = $("#txtItemName").val();
+                   let itemStock = $("#txtInStock").val();
+                   let itemSalary = $("#txtItemSalary").val();
+
+                   var itemObject = new ItemDTO(itemID,itemName,itemStock,itemSalary);
+                   itemDB[k].setItemName(itemObject.getItemName());
+                   itemDB[k].setItemstock(itemObject.getItemstock());
+                   itemDB[k].setItemsalary(itemObject.getItemsalary());
+               }
+           }
+           loadAllItems();
+       });
+       /*End of the Update Event*/
+
+       /*Butten Delete*/
+      $("#btnDeleteItems").click(function () {
+          for (var k in itemDB) {
+              if ($("#txtItemID").val() == itemDB[k].getCode()){
+                  itemDB.splice(k,1);
+              }
+          }
+         loadAllItems();
+      });
+      /*End of the Button Delete option*/
 
 function saveItem() {
     /*Gather the Item Information*/
