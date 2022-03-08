@@ -11,10 +11,10 @@ $("#btnSearchCustomer").click(function () {
 
     var response = searchCustomer(searchID);
     if(response) {
-        $("#txtCusID").val(response.setId());
-        $("#txtName").val(response.setName());
-        $("#txtAddress").val(response.setAddress());
-        $("#txtContact").val(response.setContact());
+        $("#txtCusID").val(response.customerId);
+        $("#txtName").val(response.customerName);
+        $("#txtAddress").val(response.customerAddress);
+        $("#txtContact").val(response.customerContact);
     }else{
         clearAll();
         alert("No Such a Customer");
@@ -32,8 +32,46 @@ function loadAllCustomers() {
         let row = `<tr><td>${customerDB[i].getId()}</td><td>${customerDB[i].getName()}</td><td>${customerDB[i].getAddress()}</td><td>${customerDB[i].getContact()}</td></tr>`
         /*select the table body and append the row*/
         $("#cusTable").append(row);
+
     }
+    $("#cusTable>tr").click(function () {
+        $("#txtCusID").val($(this).children(":eq(0)").text());
+        $("#txtName").val($(this).children(":eq(1)").text());
+        $("#txtAddress").val($(this).children(":eq(2)").text());
+        $("#txtContact").val($(this).children(":eq(3)").text());
+    });
 }
+/* Customer Update*/
+        $("#btnUpdate").click(function () {
+            for (var i in customerDB ){
+                if ($("#txtCusID").val() == customerDB[i].getId()){
+                    let  customerID = $("#txtCusID").val();
+                    let customerName = $("#txtName").val();
+                    let customerAddress = $("#txtAddress").val();
+                    let customerContact = $("#txtContact").val();
+
+                    var customerObject = new CustomerDTO(customerID,customerName,customerAddress,customerContact);
+                    customerDB[i].setName(customerObject.getName());
+                    customerDB[i].setAddress(customerObject.getAddress());
+                    customerDB[i].setContact(customerObject.getContact());
+                }
+            }
+            loadAllCustomers();
+
+        });
+        /*End of the Customer Update*/
+
+       /*Button Delete*/
+      $("#btnDeleteCustomer").click( function () {
+         for(var i in customerDB) {
+             if ($("#txtCusID").val() == customerDB[i].getId()){
+                 customerDB.splice(i,1);
+             }
+
+         }
+         loadAllCustomers();
+      });
+
 function saveCustomer() {
     /*gather customer information*/
     let customerID = $("#txtCusID").val();
@@ -44,6 +82,8 @@ function saveCustomer() {
     /*create Object*/
     var customerObject = new CustomerDTO(customerID,customerName,customerAddress,customerContact);
     customerDB.push(customerObject);
+
+
 
     /*var customerObject ={
         cid:customerID,
