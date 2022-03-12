@@ -273,27 +273,27 @@
                             <textarea class="form-control" id="ORDERID" rows="1"></textarea>
                         </div>
                         <div class="mb-3">
-                            <label for="CUSTOMERID" class="form-label">Customer ID:</label>
-                            <textarea class="form-control" id="CUSTOMERID" rows="1"></textarea>
+                            <label for="txtOrderDate">Order Date</label>
+                            <input class="form-control" id="txtOrderDate" type="date">
+                        </div>
+                        <div class="mb-3">
+                            <label class="fw-bold" for="cmbSelectCustomerId">Customer ID :</label>
+                            <select aria-label="Default select example" class="form-select" id="cmbSelectCustomerId"></select>
                         </div>
                         <div class="mb-3">
                             <label for="CUSTOMERNAME" class="form-label">Name :</label>
                             <textarea class="form-control" id="CUSTOMERNAME" rows="1"></textarea>
                         </div>
                         <div class="mb-3">
-                            <label for="EMAILADDRESS" class="form-label">Email Address :</label>
-                            <input type="email" class="form-control" id="EMAILADDRESS" placeholder="name@example.com">
-                        </div>
-                        <div class="mb-3">
-                            <label for="DATE" class="form-label">Date :</label>
-                            <textarea class="form-control" id="DATE" rows="1"></textarea>
+                            <label for="CUSTOMERADDRESS" class="form-label">Address :</label>
+                            <textarea class="form-control" id="CUSTOMERADDRESS" rows="1"></textarea>
                         </div>
 
                         <div class="mb-3">
                             <label for="CONTACT" class="form-label">Contact :</label>
                             <textarea class="form-control" id="CONTACT" rows="1"></textarea>
                         </div>
-                        <button type="button" class="btn btn-secondary">Add Order</button>
+
                     </div>
                     <div class="col-12 col-md-5">
                         <div class="p-3 mb-2 bg-warning text-black">
@@ -302,8 +302,9 @@
 
                         <div>
                             <div class="mb-3">
-                                <label for="ITEMID" class="form-label">Item ID :</label>
-                                <textarea class="form-control" id="ITEMID" rows="1"></textarea>
+                                <label class="fw-bold" for="cmbitemcode">Item Code</label>
+                                <select aria-label="Default select example" class="form-select " id="cmbitemcode">
+                                </select>
                             </div>
                             <div class="mb-3">
                                 <label for="ITEMNAME" class="form-label">Item Name :</label>
@@ -318,7 +319,39 @@
                                 <textarea class="form-control" id="ITEMSALARY" rows="1"></textarea>
                             </div>
 
-                            <button type="button" class="btn btn-danger">Add Item</button>
+                            <button type="submit" class="btn btn-danger" id="btnAddToCart">Add Item</button>
+                            <button type="submit" class="btn btn-success" id="btnClearItemFields">Clear</button>
+
+                        </div>
+
+                        <div class="col-12 col-md-20">
+                            <div class="p-3 mb-2 bg-success text-black">
+                                <h3>Payment Details</h3>
+                            </div>
+                            <div class="col-12 col-md-6 col-lg-6">
+                                <label  for="txtTotal">Total (Rs.)</label>
+                                <input class="form-control border-dark" disabled id="txtTotal" type="text">
+                            </div>
+
+                            <div class="col-12 col-md-6 col-lg-6">
+                                <label  for="txtNoOfItems">No Of Items</label>
+                                <input class="form-control border-dark" disabled id="txtNoOfItems" type="text">
+                            </div>
+                            <div class="col-12 col-md-6 col-lg-6">
+                                <label  for="txtCash">Cash (Rs.)</label>
+                                <input class="form-control border-dark" id="txtCash" type="number">
+                            </div>
+                            <div class="col-12 col-md-6 col-lg-6">
+                                <label class="fw-bold" for="txtBalance">Balance (Rs.)</label>
+                                <input class="form-control border-dark" disabled id="txtBalance" type="text">
+                            </div>
+
+                            <div class="row">
+                                <div class="col-12">
+                                    <button class="btn btn-primary rounded-2 mt-2" type="submit" id="btnPlaceOrder">Place Order</button>
+                                    <button class="btn btn-secondary rounded-2 mt-2" type="submit" id="btnCancelOrder">Cancel</button>
+                            </div>
+                            </div>
                         </div>
 
                     </div>
@@ -331,33 +364,13 @@
                                 <th scope="col">Id</th>
                                 <th scope="col">Item Type </th>
                                 <th scope="col">Price</th>
-                                <th scope="col">Quantity</th>
+                                <th scope="col">Buy quantity</th>
                                 <th scope="col">Total</th>
                             </tr>
                             </thead>
-                            <tbody>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>Soap</td>
-                                <td>25,00</td>
-                                <td>1</td>
-                                <td>2,50</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>Chocolate</td>
-                                <td>20,00</td>
-                                <td>2</td>
-                                <td>3,500</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td>Milk</td>
-                                <td>20,00</td>
-                                <td>4</td>
-                                <td>2,000</td>
+                            <tbody id="cartTable">
 
-                            </tr>
+
                             </tbody>
                         </table>
                     </div>
