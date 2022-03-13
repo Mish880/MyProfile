@@ -25,7 +25,26 @@ function loadCustomerCord(){
 }
 $("#OrderBtn").click(function () {
     loadCustomerCord();
+
 });
+
+$("#cmbSelectCustomerId").click(function () {
+
+     let cust = $("#cmbSelectCustomerId").val();
+
+     selectedCustomer(cust);
+});
+
+  function selectedCustomer(CustomerId) {
+      for (const i in customerDB) {
+          if (customerDB[i].getId()==CustomerId) {
+              let element = customerDB[i];
+              $("#CUSTOMERNAME").val(element.getName());
+              $("#CUSTOMERADDRESS").val(element.getAddress());
+              $("#CONTACT").val(element.getContact());
+          }
+      }
+  }
 
   function loadItemCord() {
     $("#cmbitemcode > option").remove();
@@ -44,14 +63,29 @@ $("#OrderBtn").click(function () {
   function SelectItemID() {
       for (var i in itemDB) {
           if (itemDB[i].getCode() == arguments[0]){
-              $("#ITEMNAME").val(itemDB[i].getItemName)
+              $("#ITEMNAME").val(itemDB[i].getItemName());
           }
       }
    }
    $("#OrderBtn").click(function () {
        loadItemCord();
+
    });
 
+   $("#cmbitemcode").click(function () {
+       let item = $("#cmbitemcode").val();
+       selectedItem(item);
+   });
 
+  function selectedItem(ItemId) {
+      for (const i in itemDB) {
+          if (itemDB[i].getCode()==ItemId) {
+              let element = itemDB[i];
+              $("#ITEMNAME").val(element.getItemName());
+              $("#ORDERQUANTITY").val(element.getItemstock());
+              $("#ITEMSALARY").val(element.getItemsalary());
+          }
+      }
+  }
 
 
