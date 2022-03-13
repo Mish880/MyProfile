@@ -8,8 +8,10 @@ function drive() {
     var top = car[i];
 
     while (i < car.length) {
+
         if (i == 5) {
             car[i] = top;
+
         } else {
             car[i] = car[i + 1];
         }
@@ -19,10 +21,10 @@ function drive() {
 
     var count = 0;
 
-    $('#one').text(car[count++]);
-    $('#two').text(car[count++]);
-    $('#three').text(car[count++]);
-    $('#four').text(car[count++]);
-    $('#five').text(car[count++]);
-    $('#six').text(car[count++]);
+    $('#one').textContent(car[count++]);
+    $('#two').textContent(car[count++]);
+    $('#three').textContent(car[count++]);
+    $('#four').textContent(car[count++]);
+    $('#five').textContent(car[count++]);
+    $('#six').textContent(car[count]);
 }
